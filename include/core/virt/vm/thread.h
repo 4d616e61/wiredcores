@@ -51,6 +51,8 @@ namespace Core::Virt::VM {
         //UNSAFE FUNCTION!
         //all the addresses in references are real addresses, make sure it is properly resolved
         void OpcodeDispatch(byte opcode, Operand& o1, Operand& o2);
+        void OpcodeDispatch_1Op(byte opcode, Operand& o1);
+        void OpcodeDispatch_2Op(byte opcode, Operand& o1, Operand& o2);
         
         //std::shared_ptr<Core::Virt::Mem::MemorySpace> memspace;
         Core::Virt::Mem::MemorySpace* memspace;

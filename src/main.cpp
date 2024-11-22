@@ -22,7 +22,8 @@ int main(int argc, char** argv) {
     thread.context.ip = thread.context.base_address;
 
     //mov r7, num_to_test
-    uint64 num_to_test = 1336;
+    //uint64 num_to_test = 1337;
+    word num_to_test = 1337;
     byte u64_mask = 1 << 4 | 1 << 5;
     //qword
     uint64 ctr = 0;
@@ -30,7 +31,7 @@ int main(int argc, char** argv) {
     //arg0: r7
     writebyte((Operand(true, false, false)._operand_byte | 7 | u64_mask));
     //arg1: literal(64 bits wide=3)
-    writebyte(Operand(false, false, false)._operand_byte | 3);
+    writebyte(Operand(false, false, false)._operand_byte | 1);
     //write in literal
     memcpy(page->data + ctr, &num_to_test, sizeof(num_to_test));
     ctr += sizeof(num_to_test);

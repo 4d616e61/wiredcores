@@ -12,7 +12,17 @@ namespace Core::Virt::VM {
         constexpr byte FL_TWO_OPERANDS = 1 << TWO_OPERANDS;
     };
 
-    namespace opcodes { 
+    namespace opcodes_1op { 
+        enum ops {
+            inc,
+            dec,
+            _not,
+            jmp,
+
+
+        };
+    };
+    namespace opcodes_2op { 
         enum ops{
             add,
             sub, 
