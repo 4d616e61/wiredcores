@@ -18,12 +18,15 @@ namespace Core::Virt::VM {
             dec,
             _not,
             jmp,
+            //jump with flag/ without flag
+            jf,
+            jnf,
 
 
         };
     };
     namespace opcodes_2op { 
-        enum ops{
+        enum ops {
             add,
             sub, 
             shl,
@@ -36,8 +39,11 @@ namespace Core::Virt::VM {
             div,
             mod,
             mov,
-            jz,
-            jnz,
+            cmpg,
+            cmpge,
+            cmpeq,
+            cmple,
+            cmpl
 
 
         };

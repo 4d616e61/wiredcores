@@ -28,6 +28,7 @@ namespace Core::Virt::VM
 
         // general purpose regisers
         uint64 r2 = 0, r3 = 0, r4 = 0, r5 = 0, r6 = 0, r7 = 0;
+        bool flag = 0;
 
         // addr_t base_address = 0;
         uint64 cycle_count = 0;
@@ -44,6 +45,7 @@ namespace Core::Virt::VM
                 uint64 v = *((uint64 *)this + i);
                 stream << "\nr" << i << ":      " << v << " / 0x" << std::hex << v << std::dec;
             }
+            stream << "\nflag:    " << flag;
 
             return stream.str();
         }
@@ -56,6 +58,8 @@ namespace Core::Virt::VM
         // UNSAFE FUNCTION!
         // all the addresses in references are real addresses, make sure it is properly resolved
         void OpcodeDispatch(byte opcode, Operand &o1, Operand &o2);
+        void OpcodeDispatch_1op(byte opcode, Operand &o1);
+        void OpcodeDispatch_2op(byte opcode, Operand &o1, Operand &o2);
 
         // std::shared_ptr<Core::Virt::Mem::MemorySpace> memspace;
         Core::Virt::Mem::MemorySpace *memspace;
