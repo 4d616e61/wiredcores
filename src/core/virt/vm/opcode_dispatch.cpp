@@ -91,7 +91,7 @@ void Thread::OpcodeDispatch_2op(byte opcode, Operand &o1, Operand &o2)
         }
         break;
     case opcodes_2op::cmple:
-        if( o1.get() < o2.get() ){
+        if( o1.get() <= o2.get() ){
             context.flag = 1;
         } else {
             context.flag = 0;
